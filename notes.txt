@@ -1,0 +1,69 @@
+-code that is sent to arduino is sent serially (tx for laptop and rx for arduino)
+
+-the usb type A contains 4 wires tx for laptop , rx for arduino, 5v for power to arduino and GND also for power
+
+-there is also parallel communication where all bits go travel at the same time
+
+-the transfer speed / communication speed is in baud rate (bps)
+
+-we called serial library and used begin functin with the baudrate
+
+-then we do serial.println("whatever")
+
+-because arduino is transmitting data that is why tx LED is on (its actually blinking at the baud rate which is 9600)
+
+-shorter leg of LED is anode, longer leg is cathode
+
+-there are 4 types of functions in arduino
+
+-digitalread sends 0 or 1
+
+-sensors compatible with arduino have 3 pins (VCC, DATA, GND) {the distance this sensor can read is from 2cm to 4 metre} [model -> HC-SR04]
+	->the trigger pin will be given high
+	->the echo pin (initially low) will be used as an input for arduino (high for when it recieves the sound wave)
+
+-if we give Ultrasonic sensor high for 10 micro secs then there will be 8 pulses at 40khz.
+
+-the time which we will recieve from sensor will be in microsecond
+
+-we add a delay to actually register the distance because the response would be too fast otherwise
+
+-always give time to the sensor to settle by setting it to low for a second or two
+
+-we can dim or brighten an LED by PWM (pulse width modulation)
+
+-duty cycle = (time on / time on  + time off) * 100 (%)
+
+-by changing the duty cycle of the pulses we can dim or brighten the LED
+
+-duty cycle range is 0 to 255 where 255 corresponds to 100% of the duty cycle
+
+-this brightning and dimming only works with pins having ~ symbol (i.e. 3,5,6,9,10,11)
+
+-DC motor working voltage range 3 to 9 volts
+
+-servo rotates from 0 to 180 degrees , its very precise
+
+-red connects to VCC 5V, brown connects to ground, yellow connects to any pwm enabled pin
+
+-the LDR is a simple bare sensor, hence it only gives us analog values
+
+-Light Dependent Resistor , resistance varies depending on light incident on it
+
+-we convert the LDR's analog values into digital values via an ADC 
+
+-the ADC range of arduino is 10bit (0 to 1023) these correspond to the voltage
+
+>>autobrightness how to with the arduino
+
+>>read about the l293D motor driver READ ABOUT THIS AND COME PREPARED TOMORROW 
+======================================================================================
+DAY 2
+
+-we begin by movin motor forward
+
+-stop left motor to go left & right motor to go right
+
+-if we want to give more power to the motor we can use L293D
+
+-L293D is controlled via 
