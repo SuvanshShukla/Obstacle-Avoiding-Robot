@@ -4,6 +4,7 @@ Servo myservo;
 int trig = 4;
 int echo = 5;
 float d, t;
+int distance;
 
 
 void setup() {
@@ -19,19 +20,43 @@ void setup() {
   pinMode(echo, INPUT);  
   
 
-  myservo.attach(6);
-
-  
+  myservo.attach(6); 
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  lookLeft();
-  lookRight();
+  int distLeft = 0;
+  int distRight = 0;
 
-  moveForward();
+   delay(500);
 
-  if(
+   if(distance<20){
+      moveStop();
+      delay(300);
+      moveBackward();
+      delay(300);
+      moveStop();
+      delay(300);
+
+      distLeft = lookLeft();
+      distRight = lookRight();
+
+      if(distLeft>=distRight){
+          moveLeft();
+          moveStop();
+        }
+      else{
+          moveRight();
+          moveStop();
+        }
+      }
+      
+      else{
+        moveForward();
+      }
+
+      distance = readDistance();
+    
 }
 
 void moveForward(){
