@@ -30,6 +30,8 @@ void loop() {
   lookRight();
 
   moveForward();
+
+  if(
 }
 
 void moveForward(){
@@ -101,7 +103,7 @@ int readDistance(){
   return d;  
 }
 
-void lookLeft(){ 
+int lookLeft(){ 
     myservo.write(30);  //this line is used for rotating left change for more left
     delay(1000);
     int distance = readDistance();
@@ -112,7 +114,7 @@ void lookLeft(){
   
 }
 
-void lookRight(){
+int lookRight(){
     myservo.write(120);  //this line is used for rotating left change for more right 
     delay(1000);
     int distance = readDistance();
