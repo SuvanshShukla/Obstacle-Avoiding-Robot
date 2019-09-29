@@ -28,7 +28,7 @@ void loop() {
   int distLeft = 0;
   int distRight = 0;
 
-   delay(500);
+   delay(100);
 
    if(distance<20){
       moveStop();
